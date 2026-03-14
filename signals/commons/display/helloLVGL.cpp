@@ -23,10 +23,10 @@ Arduino_DataBus *bus = new Arduino_ESP32QSPI(
 Arduino_GFX *gfx = new Arduino_SPD2010(bus, GFX_NOT_DEFINED);
 
 // --- LVGL DISPLAY BUFFER ---
-// We allocate a buffer for 1/10th of the screen (360x360). 
+// We allocate a buffer for 1/10th of the screen (412x412). 
 // Doing this in PSRAM prevents crashes.
-static const uint32_t screenWidth  = 360;
-static const uint32_t screenHeight = 360;
+static const uint32_t screenWidth  = 412;
+static const uint32_t screenHeight = 412;
 static lv_disp_draw_buf_t draw_buf;
 static lv_color_t *buf1;
 
