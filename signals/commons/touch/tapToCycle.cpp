@@ -134,6 +134,24 @@ void my_touchpad_read(lv_indev_drv_t * indev_driver, lv_indev_data_t * data) {
     }
 }
 
+// --- COLOR CYCLE LOGIC ---
+static void screen_click_event_cb(lv_event_t * e) {
+    static uint8_t color_state = 1; 
+    lv_obj_t * screen = lv_event_get_target(e);
+
+    if (color_state == 0) {
+        lv_obj_set_style_bg_color(screen, lv_color_hex(0xFF0000), 0); // Red
+        color_state = 1;
+    } else if (color_state == 1) {
+        lv_obj_set_style_bg_color(screen, lv_color_hex(0x00FF00), 0); // Green
+        color_state = 2;
+    } else if (color_state == 2) {
+        lv_obj_set_style_bg_color(screen, lv_color_hex(0x0000FF), 0); // Blue
+        color_state = 0;
+    }
+}
+
+
 // --- SILICON VERIFICATION ---
 void test_spd2010_firmware() {
     uint8_t sample_data[18];
