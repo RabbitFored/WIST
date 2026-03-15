@@ -66,7 +66,7 @@ bool spd2010_read(uint16_t reg, uint8_t *data, uint8_t len) {
 // The core state machine translated from the Waveshare Demo
 bool get_touch_coordinates(int16_t &x, int16_t &y) {
     // 1. Check the physical interrupt pin first
-    if (digitalRead(PIN_TP_INT) != LOW) return false;
+    // if (digitalRead(PIN_TP_INT) != LOW) return false;
 
     uint8_t status_data[4];
     if (!spd2010_read(0x2000, status_data, 4)) return false;
